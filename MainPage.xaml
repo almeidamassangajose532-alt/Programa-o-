@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FlappyBirdMaui.MainPage"
+             BackgroundColor="#4EC0F2"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+
+        <GraphicsView x:Name="GameCanvas"
+                      SizeChanged="OnGameCanvasSizeChanged">
+            <GraphicsView.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnScreenTapped" />
+            </GraphicsView.GestureRecognizers>
+        </GraphicsView>
+
+        <Label x:Name="ScoreLabel"
+               Text="0"
+               FontSize="48"
+               FontAttributes="Bold"
+               TextColor="White"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               Margin="0,40,0,0">
+            <Label.Shadow>
+                <Shadow Brush="Black" Offset="2,2" Radius="3" Opacity="0.6" />
+            </Label.Shadow>
+        </Label>
+
+        <Label x:Name="TapToStartLabel"
+               Text="TOQUE PARA COMEÇAR"
+               FontSize="20"
+               FontAttributes="Bold"
+               TextColor="White"
+               HorizontalOptions="Center"
+               VerticalOptions="Center">
+            <Label.Shadow>
+                <Shadow Brush="Black" Offset="1,1" Radius="2" Opacity="0.6" />
+            </Label.Shadow>
+        </Label>
+
+        <Grid x:Name="GameOverPanel"
+              IsVisible="False"
+              BackgroundColor="#80000000"
+              HorizontalOptions="Fill"
+              VerticalOptions="Fill">
+
+            <VerticalStackLayout VerticalOptions="Center"
+                                 HorizontalOptions="Center"
+                                 Spacing="14"
+                                 Padding="30,24"
+                                 BackgroundColor="#F2F2F2"
+                                 MaximumWidthRequest="320">
+
+                <Label Text="GAME OVER"
+                       FontSize="30"
+                       FontAttributes="Bold"
+                       TextColor="#D32F2F"
+                       HorizontalOptions="Center" />
+
+                <Label x:Name="FinalScoreLabel"
+                       Text="Pontuação: 0"
+                       FontSize="20"
+                       TextColor="#333333"
+                       HorizontalOptions="Center" />
+
+                <Label x:Name="BestScoreLabel"
+                       Text="Melhor: 0"
+                       FontSize="16"
+                       TextColor="#666666"
+                       HorizontalOptions="Center" />
+
+                <Button x:Name="RestartButton"
+                        Text="REINICIAR"
+                        FontAttributes="Bold"
+                        BackgroundColor="#4CAF50"
+                        TextColor="White"
+                        CornerRadius="10"
+                        Padding="20,12"
+                        Clicked="OnRestartClicked"
+                        HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </Grid>
+
+    </Grid>
+</ContentPage>
